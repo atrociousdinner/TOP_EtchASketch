@@ -1,0 +1,184 @@
+/* Global Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Base Styles */
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #121212;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: #e0e0e0;
+}
+
+/* Common Card Styles */
+.color-container,
+.heading {
+    border: none;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), 0 1.5px 4px rgba(0, 0, 0, 0.2);
+    width: 240px;
+    height: 200px;
+    margin-right: 45px;
+    margin-left: 10px;
+    background: #1e1e1e;
+}
+
+/* Text Items Container */
+.text.items {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 20px;
+}
+
+/* Heading Section */
+.heading {
+    text-align: center;
+    padding: 5px 0 0 10px;
+    color: #b8b8b8; /* Purple accent color */
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+}
+
+/* Color Container */
+.color-container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 18px 0 0 0;
+}
+
+/* Text Element */
+.text {
+    font-size: 1.15rem;
+    font-weight: 500;
+    border: none;
+    height: 36px;
+    margin: 10px;
+    text-align: center;
+    background: transparent;
+    letter-spacing: 1px;
+    color: #ffffff; /* Purple accent color */
+}
+
+/* Color Options Grid */
+.color-options {
+    flex: 1 1 auto;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 18px 18px 18px;
+    border: none;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Individual Color Element */
+.color {
+    border: 2px solid #333333;
+    border-radius: 8px;
+    width: 80px;
+    height: 28px;
+    text-align: center;
+    line-height: 28px;
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    transition: border 0.2s, box-shadow 0.2s, transform 0.1s;
+    background: #2d2d2d;
+    color: #e0e0e0;
+    user-select: none;
+}
+
+/* Color Button Specifics */
+.color.cyan {
+    background: #00ffff;
+    color: #121212;
+}
+
+.color.magenta {
+    background: #ff00ff;
+    color: #121212;
+}
+
+.color.gold {
+    background: #ffd700;
+    color: #121212;
+}
+
+.color.teal {
+    background: #00ced1;
+    color: #121212;
+}
+
+.color.lavender {
+    background: #e6e6fa;
+    color: #121212;
+}
+
+.color.coral {
+    background: #ff7f50;
+    color: #121212;
+}
+
+
+.color:hover,
+.color:focus {
+    border: 2px solid #bb86fc;
+    box-shadow: 0 4px 12px rgba(187, 134, 252, 0.3);
+    transform: translateY(-2px) scale(1.03);
+    outline: none;
+}
+
+/* Main Container */
+.container {
+    height: 540px;
+    background: #1e1e1e;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), 0 1.5px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 18px;
+    display: flex;
+    width: 540px;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Grid Layout */
+.grid {
+    display: flex;
+    width: 500px;
+    height: 500px;
+    flex-wrap: wrap;
+    background: #2d2d2d;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Grid Squares */
+.square {
+    width: 31.25px;
+    height: 31.25px;
+    border: 1px solid #333333;
+    background: #1e1e1e;
+    transition: background 0.2s, box-shadow 0.2s;
+    border-radius: 6px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.square:hover {
+    box-shadow: 0 2px 8px rgba(187, 134, 252, 0.3);
+    outline: 1.5px solid #bb86fc;
+    z-index: 1;
+}
