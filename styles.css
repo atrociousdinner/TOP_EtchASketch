@@ -153,6 +153,7 @@ body {
     justify-content: center;
     align-items: center;
     padding: 20px;
+    flex-direction: column;
 }
 
 /* Grid Layout */
@@ -188,4 +189,28 @@ body {
     height: 25px;
     width: 25px;
     border-radius: 50%;
+}
+
+.modes{
+    display: flex;
+    width: 100%;
+    border: 3px solid white;
+    justify-content: space-around;
+}
+
+.btn{
+    border: 2px solid #333333;
+    border-radius: 8px;
+    width: 80px;
+    height: 28px;
+    text-align: center;
+    line-height: 28px;
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    transition: border 0.2s, box-shadow 0.2s, transform 0.1s;
+    background: #2d2d2d;
+    color: #e0e0e0;
+    user-select: none;
 }

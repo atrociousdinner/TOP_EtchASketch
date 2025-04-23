@@ -4,29 +4,52 @@ const picker = document.getElementById('color-picker')
 let size = 16;
 let currentColor = 'gold';
 let isDrawing = false; // Track mouse state
+const mode_buttons = document.querySelectorAll('.btn')
+let currentMode;
 
-const createGrid = (size) => {
+const modes ={
+    DRAG: 1,
+    HOVER: 2
+}
+
+const createGrid = (size, mode = modes.DRAG) => {
     grid.innerHTML = '';
     for (let i = 0; i < size * size; i++) {
         const square = document.createElement('div');
         square.classList.add('square');
 
         // Color on mousedown (single click)
-        square.addEventListener('mousedown', () => {
-            renderColor(square, currentColor);
-            isDrawing = true;
-        });
 
-        // Color on mouseover if mouse is down (drag to draw)
-        square.addEventListener('mouseover', () => {
-            if (isDrawing) {
+        if(mode == modes.DRAG){
+            square.addEventListener('mousedown', () => {
                 renderColor(square, currentColor);
-            }
-        });
+                isDrawing = true;
+            });
+        
+    
+            // Color on mouseover if mouse is down (drag to draw)
+            square.addEventListener('mouseover', () => {
+                if (isDrawing) {
+                    renderColor(square, currentColor);
+                }
+            });
+            currentMode = modes.DRAG
+        }
+
+        else if (mode == modes.HOVER){
+            square.addEventListener('mouseover', () => {
+                renderColor(square, currentColor);
+            });
+
+            currentMode = modes.HOVER
+        }
 
         grid.appendChild(square);
     }
+    return currentMode
 };
+
+
 
 // Listen for mouseup anywhere on the page to stop drawing
 document.addEventListener('mouseup', () => {
@@ -55,5 +78,22 @@ const chooseColor = () => {
     });
 };
 
+const chooseModes = () => {
+    mode_buttons.forEach(mode => {
+        console.log(mode)
+        mode.addEventListener('click', () => {
+            if(mode.classList.contains('reset')){
+                createGrid(size, currentMode)
+            }
+            else if(mode.classList.contains('drag')){
+                createGrid(size, modes.DRAG)
+            }
+            else if(mode.classList.contains('hover')){
+                createGrid(size, modes.HOVER)
+            }
+        })
+    });
+}
 createGrid(size);
 chooseColor();
+chooseModes();
