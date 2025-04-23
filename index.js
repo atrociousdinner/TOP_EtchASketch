@@ -1,41 +1,59 @@
-const grid = document.querySelector('.grid')
-const size = 16
-let currentColor = 'yellow'
+const grid = document.querySelector('.grid');
+const colors = document.querySelectorAll('.color');
+const picker = document.getElementById('color-picker') 
+let size = 16;
+let currentColor = 'gold';
+let isDrawing = false; // Track mouse state
 
-function createGrid(size) {
+const createGrid = (size) => {
     grid.innerHTML = '';
-
     for (let i = 0; i < size * size; i++) {
-        const square = document.createElement('div')
-        square.classList.add('square')
+        const square = document.createElement('div');
+        square.classList.add('square');
 
-        square.addEventListener('mouseover', () => {
+        // Color on mousedown (single click)
+        square.addEventListener('mousedown', () => {
             renderColor(square, currentColor);
-        })
+            isDrawing = true;
+        });
 
-        grid.appendChild(square)
+        // Color on mouseover if mouse is down (drag to draw)
+        square.addEventListener('mouseover', () => {
+            if (isDrawing) {
+                renderColor(square, currentColor);
+            }
+        });
+
+        grid.appendChild(square);
     }
-}
+};
 
+// Listen for mouseup anywhere on the page to stop drawing
+document.addEventListener('mouseup', () => {
+    isDrawing = false;
+});
 
-function renderColor(element, color = 'yellow') {
-    element.style.backgroundColor = color.toLowerCase();
-}
+const renderColor = (element, color) => {
+    element.style.backgroundColor = color;
+};
 
-
-function chooseColor() {
-    const colors = document.querySelectorAll('.color')
+const chooseColor = () => {
     colors.forEach(color => {
-        color.addEventListener('click', () => {
-            console.log(color.textContent.toUpperCase() + ' was picked.');
-            currentColor = color.textContent.toLowerCase().trim()
-            createGrid(size)
-        })
+        if(color.classList.contains("picker")){
+            picker.addEventListener('change', (event) => {
+                createGrid(size)
+                currentColor = event.target.value
+            })
+        }
+        else{
+            color.addEventListener('click', () => {
+                createGrid(size);
+                currentColor = color.textContent.trim();
+            });
+        }
+        
     });
-}
+};
 
-
-
-createGrid(size)
-chooseColor()
-
+createGrid(size);
+chooseColor();

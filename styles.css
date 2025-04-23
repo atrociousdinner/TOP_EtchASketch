@@ -23,7 +23,7 @@ body {
     border-radius: 18px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), 0 1.5px 4px rgba(0, 0, 0, 0.2);
     width: 240px;
-    height: 200px;
+    height: 226px;
     margin-right: 45px;
     margin-left: 10px;
     background: #1e1e1e;
@@ -168,6 +168,7 @@ body {
 
 /* Grid Squares */
 .square {
+    user-select: none;
     width: 31.25px;
     height: 31.25px;
     border: 1px solid #333333;
@@ -181,4 +182,10 @@ body {
     box-shadow: 0 2px 8px rgba(187, 134, 252, 0.3);
     outline: 1.5px solid #bb86fc;
     z-index: 1;
+}
+
+#color-picker{
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
 }
